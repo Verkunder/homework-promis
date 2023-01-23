@@ -145,4 +145,23 @@
 // 		nums.filter((item, index) => res[index])
 // 	)
 // }
-// asyncFilter(array).then(console.log) // 2, 4
+// asyncFilter(array).then(console.log)
+
+const urls = ['url1', 'url2', 'url3']
+
+function fakeFetch(url, params = '-') {
+	console.log(`fakeFetch to: ${url} with params: ${params}`)
+	return new Promise(resolve => {
+		setTimeout(() => resolve(`${url} is DONE`), 1000)
+	})
+}
+
+const reduceWay = callback =>
+	urls
+		.reduce(
+			(acc, item) => acc.then(res => fakeFetch(item, res)),
+			Promise.resolve()
+		)
+		.then(result => callback(result))
+
+reduceWay(result => console.log(`result: ${result}`))
