@@ -130,19 +130,19 @@
 
 // twoExample()
 
-const array = [2, 4, 6, 7, 9, 10]
+// const array = [2, 4, 6, 7, 9, 10]
 
-const isEven = n => {
-	return new Promise(resolve => {
-		return setTimeout(() => {
-			resolve(n % 2 === 0)
-		}, 0)
-	})
-}
+// const isEven = n => {
+// 	return new Promise(resolve => {
+// 		return setTimeout(() => {
+// 			resolve(n % 2 === 0)
+// 		}, 0)
+// 	})
+// }
 
-function asyncFilter(nums) {
-	return Promise.all(nums.map(isEven)).then(res =>
-		nums.filter((item, index) => res[index])
-	)
-}
-asyncFilter(array).then(console.log) // 2, 4
+// function asyncFilter(nums) {
+// 	return Promise.all(nums.map(isEven)).then(res =>
+// 		nums.filter((item, index) => res[index])
+// 	)
+// }
+// asyncFilter(array).then(console.log) // 2, 4
