@@ -11,12 +11,12 @@
 };*/
 // ----------------------
 // const fs = require('fs')
-
+//
 // fs.promises
 // 	.readFile('./example.txt', 'utf-8')
 // 	.then(data => console.log(data))
 // 	.catch(err => console.error('ошибка', err))
-
+//
 // const fileRead = (filePath, meta) => {
 // 	return new Promise((resolve, reject) => {
 // 		fs.readFile(filePath, meta, (err, data) => {
@@ -25,11 +25,11 @@
 // 		})
 // 	})
 // }
-
+//
 // fileRead('./example.txt', 'utf-8')
 // 	.then(data => console.log(data))
 // 	.catch(err => console.error('123'))
-
+//
 // const readFile = file => {
 // 	return new Promise((resolve, reject) => {
 // 		const fr = new FileReader()
@@ -40,7 +40,7 @@
 // 		fr.readAsText(file.blob)
 // 	})
 // }
-
+//
 // readFile('./example.txt')
 // 	.then(data => console.log('data'))
 // 	.catch(err => console.error('error readFile'))
@@ -56,7 +56,7 @@
 // 	})
 // 	.catch(() => console.log(3)) // 6
 // 	.then(() => console.log(4)) // 8
-
+//
 // Promise.resolve()
 // 	.then(() => console.log(11)) // 2
 // 	.then(() => {
@@ -68,14 +68,14 @@
 
 // ----------------------
 
-// const getMessage = () => Promise.resolve('my message')
-
+// const getMessage = () => Promise.resolve('my message') //4
+//
 // async function myFunc() {
 // 	console.log('in func') // 2
 // 	const res = await getMessage()
 // 	console.log(res) // 5
 // }
-
+//
 // console.log('before') // 1
 // myFunc()
 // console.log('after') // 3
@@ -100,7 +100,7 @@
 // 		console.error(err)
 // 	}
 // }
-
+//
 // getUserGitHub('Verkunder')
 
 // const saveFiles = async (order, files) => {
@@ -125,7 +125,7 @@
 // ----------------------
 
 // const array = [1, 2, 3, 4, 5, 6]
-
+//
 // const oneExample = async () => {
 // 	const result = await Promise.all(
 // 		array.map(async item => {
@@ -135,13 +135,13 @@
 // 	)
 // 	console.log(result)
 // }
-
+//
 // oneExample()
 
 // ----------------------
 
 // const array = [1, 2, 3]
-
+//
 // const twoExample = async () => {
 // 	const result = await array.reduce(async (acc, item) => {
 // 		const num = await acc
@@ -149,13 +149,13 @@
 // 	}, Promise.resolve(0))
 // 	console.log(result)
 // }
-
+//
 // twoExample()
 
 // ----------------------
 
 // const array = [2, 4, 6, 7, 9, 10]
-
+//
 // const isEven = n => {
 // 	return new Promise(resolve => {
 // 		return setTimeout(() => {
@@ -163,7 +163,7 @@
 // 		}, 0)
 // 	})
 // }
-
+//
 // function asyncFilter(nums) {
 // 	return Promise.all(nums.map(isEven)).then(res =>
 // 		nums.filter((item, index) => res[index])
