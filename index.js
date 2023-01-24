@@ -147,21 +147,65 @@
 // }
 // asyncFilter(array).then(console.log)
 
-const urls = ['url1', 'url2', 'url3']
+// const urls = ['url1', 'url2', 'url3']
+//
+// function fakeFetch(url, params = '-') {
+// 	console.log(`fakeFetch to: ${url} with params: ${params}`)
+// 	return new Promise(resolve => {
+// 		setTimeout(() => resolve(`${url} is DONE`), 1000)
+// 	})
+// }
+//
+// const reduceWay = callback =>
+// 	urls
+// 		.reduce(
+// 			(acc, item) => acc.then(res => fakeFetch(item, res)),
+// 			Promise.resolve()
+// 		)
+// 		.then(result => callback(result))
+//
+// reduceWay(result => console.log(`result: ${result}`))
 
-function fakeFetch(url, params = '-') {
-	console.log(`fakeFetch to: ${url} with params: ${params}`)
-	return new Promise(resolve => {
-		setTimeout(() => resolve(`${url} is DONE`), 1000)
-	})
-}
 
-const reduceWay = callback =>
-	urls
-		.reduce(
-			(acc, item) => acc.then(res => fakeFetch(item, res)),
-			Promise.resolve()
-		)
-		.then(result => callback(result))
 
-reduceWay(result => console.log(`result: ${result}`))
+const fetchTodo = async id => {
+	try {
+		const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
+		return response.json();
+	} catch (e) {
+		return null;
+	}
+};
+
+const range = (min, max) => [...Array(max - min + 1).keys()].map((item, idx) => idx + min);
+
+const settings = {
+	min: 2,
+	max: 22,
+	group: 10,
+	time: 2,
+};
+
+const ran = range(settings.min, settings.max);
+
+const getGroup = async idList => {
+	return await Promise.all(idList.map(async id => await fetchTodo(id)));
+};
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const getTodos = async (settings, list) => {
+	let todo = [];
+	while (list.length) {
+		const resp = await getGroup(list.splice(0, settings.group));
+		console.log('User:', resp);
+		await delay(settings.time * 1000);
+		todo = [...todo, ...resp];
+	}
+
+	return todo;
+};
+
+getTodos(settings, ran)
+	.then(arr => console.log('***', arr))
+	.catch(console.log);
