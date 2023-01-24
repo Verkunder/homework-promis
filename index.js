@@ -1,3 +1,15 @@
+// пример колбека
+
+/*const fetchData = (userId, callback) => {
+	setTimeout(() => {
+		const fakeData = {
+			id: userId,
+			name: 'George',
+		};
+		callback(fakeData);
+	}, 300);
+};*/
+// ----------------------
 // const fs = require('fs')
 
 // fs.promises
@@ -33,6 +45,8 @@
 // 	.then(data => console.log('data'))
 // 	.catch(err => console.error('error readFile'))
 
+// ----------------------
+
 // Promise.resolve()
 // 	.then(() => console.log(1)) // 1
 // 	.catch(() => console.log(0))
@@ -52,6 +66,8 @@
 // 	.catch(() => console.log(13)) // 5
 // 	.then(() => console.log(14)) // 7
 
+// ----------------------
+
 // const getMessage = () => Promise.resolve('my message')
 
 // async function myFunc() {
@@ -63,6 +79,8 @@
 // console.log('before') // 1
 // myFunc()
 // console.log('after') // 3
+
+// ----------------------
 
 // const getUserGitHub = async user => {
 // 	try {
@@ -104,6 +122,8 @@
 // 	}
 // }
 
+// ----------------------
+
 // const array = [1, 2, 3, 4, 5, 6]
 
 // const oneExample = async () => {
@@ -118,6 +138,8 @@
 
 // oneExample()
 
+// ----------------------
+
 // const array = [1, 2, 3]
 
 // const twoExample = async () => {
@@ -129,6 +151,8 @@
 // }
 
 // twoExample()
+
+// ----------------------
 
 // const array = [2, 4, 6, 7, 9, 10]
 
@@ -147,6 +171,10 @@
 // }
 // asyncFilter(array).then(console.log)
 
+
+// ----------------------
+
+// ЛОМАЕТ ХРОМ!
 // const urls = ['url1', 'url2', 'url3']
 //
 // function fakeFetch(url, params = '-') {
@@ -165,6 +193,8 @@
 // 		.then(result => callback(result))
 //
 // reduceWay(result => console.log(`result: ${result}`))
+
+// НЕ СЛОМАЕТ ХРОМ!
 
 
 
